@@ -12,24 +12,24 @@ baykeShop（拜客商城系统）是一款全开源Python栈商城系统，后�
 
 
 
-## 安装
+## Installation
 
 ```python
 pip install fashionMall
 ```
 
-## 配置
+## Congifuration
 
 在项目settings.py中的最后引入
 
 ```python
-# 开发时配置
-from baykeshop.conf.develop import *
+# Congifuration at the time of development
+from Django-fashionMallSystem.conf.develop import *
 
-# 或者
+# Or
 
-# 部署时配置
-from baykeshop.conf.production import *
+# Congifuration at the time of deployment
+from Django-fashionMallSystem.conf.production import *
 ```
 
 特别说明：本项目覆盖了默认的admin进行了定制，需要将INSTALLED_APPS配置中默认的admin配置注释掉!
@@ -79,11 +79,5 @@ python manage.py initdata
 import os
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 ```
-
-**特别说明**：项目配置中对缓存并没有特别配置，默认使用了django的内存缓存，部署时建议设置为reids缓存或者数据库缓存，否则邮件验证会有小问题！
-
-## 配置说明
-
-邮件配置以及支付宝配置均在后台的**系统分类**下的**广告内容**中配置，特别需要注意的是支付宝的应用私钥格式需要转换为PKCS1格式，可使用支付宝开放平台秘钥工具进行转换！DEBUG模式下支付宝默认为沙箱环境，部署时一定要关闭django的DEBUG模式，否则支付不能正确跳转！
 
 
