@@ -18,7 +18,7 @@ The Django-fashionMallsystem is a Django-based shopping system, which relies on 
 pip install fashionMall
 ```
 
-## Congifuration
+## Configuration
 
 ## Introducing URL into the project's urls.py
 
