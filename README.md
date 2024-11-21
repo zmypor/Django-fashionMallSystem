@@ -8,7 +8,7 @@
 
 ## Project introduction
 
-The Django-fashionMallsystem is a Django-based shopping system, which relies on Django framework system as its backend. This project includes traditional Django Web application using Django and Rest API using Django REST framework (DRF), integrates Django's traditional template system and slightly adopts the front-end and back-end separation architecture.！
+The Django-fashionMallsystem is a Django-based shopping system, which relies on Django framework system as its backend. This project includes traditional Django Web application using Django and Rest API using Django REST framework (DRF), integrates Django's traditional template system and slightly adopts the front-end and back-end separation architecture.
 
 
 
@@ -20,7 +20,9 @@ pip install fashionMall
 
 ## Congifuration
 
-在项目settings.py中的最后引入
+## Introducing URL into the project's urls.py
+
+Introduce the following statement at the end of the project's urls.py
 
 ```python
 # Congifuration at the time of development
@@ -32,7 +34,7 @@ from Django-fashionMallSystem.conf.develop import *
 from Django-fashionMallSystem.conf.production import *
 ```
 
-特别说明：本项目覆盖了默认的admin进行了定制，需要将INSTALLED_APPS配置中默认的admin配置注释掉!
+Special note: This project has been customized the default admin configuration. It is necessary to comment out the default admin configuration in the INSTALLED_APPS configuration!
 
 ```
 INSTALLED_APPS = [
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-## 项目urls.py中引入url
+## Introducing URL into the project's urls.py
 
 ```python
 from django.conf import settings
@@ -48,9 +50,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # baykeshop的全部url
-    path('', include("baykeshop.urls")),
-    # 开发时静态文件配置
+    # fashionMall的全部url
+    path('', include("fashionMall.urls")),
+    # Static file configuration at the time of development
     *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
@@ -63,17 +65,17 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-## 初始化必要数据
+## Initialize necessary data
 
 ```python
 python manage.py initdata
 ```
 
-## 部署
+## Deployment
 
-部署方式多种多样，本项目作为一个包文件，将不会决定参与到你的部署过程当中，你可以根据你自身项目的需求以及django的官方文档来部署你的项目！
+There are various deployment methods, and as a package file, this project will not determine your participation in the deployment process. You can deploy your project according to your own project requirements and Django's official documentation!
 
-在部署过程中如果采用异步asgi的方式部署，可能会有异步安全类错误 `SynchronousOnlyOperation`，根据django官方文档给的提示和解决方案是在项目的settings.py中配置如下代码即可解决：
+If asynchronous ASGI is used for deployment during the deployment process, there may be asynchronous security class errors such as' SynchronousOnlyOperation '. According to the prompts and solutions provided in the official documentation of Django, the following code can be configured in the project's settings. py to solve the problem:
 
 ```python
 import os
