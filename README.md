@@ -1,7 +1,4 @@
 <div align="center">
-
-![baykeshop](https://www.bayke.shop/static/img/logo.png)
-
 <h1>Django-fashionMallSystem</h1>
 
 </div>
