@@ -1,6 +1,3 @@
-                                                 <div align="center">
-                                                <h1>Django-fashionMallSystem</h1>
-                                                </div>
 
 ## Project introduction
 
